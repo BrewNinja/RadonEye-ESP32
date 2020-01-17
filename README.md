@@ -1,1 +1,1 @@
-RadonEYE ESP32
+RadonEye RD200 sensors for the ESP32/ESPHome platform
