@@ -1,13 +1,11 @@
-//initial code from https://community.home-assistant.io/u/wettermann/
-
 #include "esphome.h"
 #include "BLEDevice.h"
 
 /************************************************************/
 //put here your MAC Adress from the radoneye sensor
-static String My_BLE_Address = "c1:96:0d:53:e9:a6";
+static String My_BLE_Address = "fe:ee:89:e3:37:76";
 /************************************************************/
-//radon1 da:b9:2c:5a:a9:75 lowercase!!!!
+//radon1 fe:ee:89:e3:37:76 lowercase!!!!
 
 
 // The remote service we wish to connect to.
@@ -46,7 +44,7 @@ class RadonEye : public PollingComponent, public Sensor {
 	Serial.begin(115200);
 	BLEDevice::init("");
     //Convert Mac Adress in correct format
-    BLEAddress bleadr = BLEAddress(My_BLE_Address.c_str());//"c1:96:0d:53:e9:a6");
+    BLEAddress bleadr = BLEAddress(My_BLE_Address.c_str());//"fe:ee:89:e3:37:76");
     ESP_LOGD("custom"," - setup connect to mac %s", My_BLE_Address.c_str());
     pClient  = BLEDevice::createClient();
     ESP_LOGD("custom"," - setup- Created client");

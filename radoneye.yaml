@@ -3,8 +3,8 @@ esphome:
   platform: ESP32
   board: nodemcu-32s
   includes:
-    - RadonEye.h
-
+    - radoneye.h
+  
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_pass
@@ -33,13 +33,32 @@ sensor:
       auto my_radon = new RadonEye();
       App.register_component(my_radon);
       return {my_radon->radon_now, my_radon->radon_day, my_radon->radon_month};
+    
     sensors:
       - name: "Radon now"
         unit_of_measurement: pCi/L
-        accuracy_decimals: 0
+        accuracy_decimals: 2
+        filters:
+        - lambda: |-
+           float MIN_VALUE = 0.00;
+           float MAX_VALUE = 400.0;
+           if (MIN_VALUE <= x && x <= MAX_VALUE) return x;
+           else return {};
       - name: "Radon day"
         unit_of_measurement: pCi/L
-        accuracy_decimals: 0
+        accuracy_decimals: 2
+        filters:
+        - lambda: |-
+           float MIN_VALUE = 0.00;
+           float MAX_VALUE = 400.0;
+           if (MIN_VALUE <= x && x <= MAX_VALUE) return x;
+           else return {};
       - name: "Radon month"
         unit_of_measurement: pCi/L
-        accuracy_decimals: 0
+        accuracy_decimals: 2
+        filters:
+        - lambda: |-
+           float MIN_VALUE = 0.00;
+           float MAX_VALUE = 400.0;
+           if (MIN_VALUE <= x && x <= MAX_VALUE) return x;
+           else return {};
