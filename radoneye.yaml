@@ -14,6 +14,8 @@ wifi:
     ssid: "Radoneye Fallback Hotspot"
     password: !secret hotspot_pass
 
+
+
 logger:
 
 # Enable Home Assistant API
