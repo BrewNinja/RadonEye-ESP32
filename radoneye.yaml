@@ -4,6 +4,8 @@ esphome:
   board: nodemcu-32s
   includes:
     - radoneye.h
+  libraries:
+  - esp32_ble_tracker=https://github.com/nkolban/ESP32_BLE_Arduino.git
   
 wifi:
   ssid: !secret wifi_ssid
